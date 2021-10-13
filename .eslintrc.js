@@ -13,5 +13,8 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
+    'vue/html-self-closing': ['warn', {
+      html: { normal: 'never', void: 'always' },
+    }],
   },
 };
