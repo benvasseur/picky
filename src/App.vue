@@ -2,24 +2,29 @@
   <v-app>
     <Toolbar />
 
-    <!-- <Navigation /> -->
-
     <v-main class="main">
-      <router-view />
+      <!-- Provides the application the proper gutter -->
+      <MainContainer>
+        <Navigation />
+
+        <router-view />
+      </MainContainer>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Toolbar from '@/components/Toolbar.vue';
-// import Navigation from '@/components/Navigation.vue';
+import Navigation from '@/components/Navigation.vue';
+import MainContainer from '@/components/MainContainer.vue';
 
 export default {
   name: 'App',
 
   components: {
     Toolbar,
-    // Navigation,
+    Navigation,
+    MainContainer,
   },
 
   data: () => ({

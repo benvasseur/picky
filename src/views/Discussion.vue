@@ -1,12 +1,14 @@
 <template>
   <v-card
-    class="mx-auto my-12"
-    max-width="700"
+    class="ml-auto"
+    max-width="720"
+    outlined
   >
     <v-card-text>
       <v-chip
         small
         label
+        color="grey lighten-3"
       >
         {{ discussion.category.label }}
       </v-chip>

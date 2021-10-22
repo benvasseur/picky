@@ -13,6 +13,7 @@
         <v-chip
           x-small
           class="ml-1 mt-n1"
+          color="grey lighten-3"
         >
           {{ user.skin_type }}
         </v-chip>
