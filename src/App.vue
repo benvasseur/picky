@@ -4,8 +4,10 @@
 
     <v-main class="main">
       <!-- Provides the application the proper gutter -->
-      <MainContainer class="py-9">
-        <Navigation />
+      <MainContainer
+        :class="{'py-9': $vuetify.breakpoint.mdAndUp}"
+      >
+        <Navigation v-if="$vuetify.breakpoint.mdAndUp" />
 
         <router-view />
       </MainContainer>

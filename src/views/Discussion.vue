@@ -1,7 +1,6 @@
 <template>
   <v-card
-    class="ml-auto"
-    max-width="720"
+    :max-width="$vuetify.breakpoint.mdAndUp ? '720' : '100%'"
     outlined
   >
     <v-card-text>
@@ -37,7 +36,9 @@
           v-for="(image, key) in discussion.image_urls"
           :key="key"
           class="d-flex child-flex"
-          cols="4"
+          cols="12"
+          sm="6"
+          md="4"
         >
           <v-img
             :src="image"
