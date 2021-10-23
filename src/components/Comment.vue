@@ -10,7 +10,10 @@
       {{ comment.content }}
     </div>
 
-    <v-row class="mt-3">
+    <v-row
+      class="mt-3"
+      dense
+    >
       <v-col
         v-for="(image, key) in comment.image_urls"
         :key="key"
@@ -20,6 +23,7 @@
         <v-img
           :src="image"
           aspect-ratio="1"
+          style="cursor: pointer;"
           @click="openGallery(key)"
         />
       </v-col>

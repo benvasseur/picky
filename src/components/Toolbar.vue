@@ -2,6 +2,8 @@
   <v-app-bar
     app
     color="white"
+    flat
+    style="border-bottom: thin solid rgba(0, 0, 0, 0.08) !important;"
   >
     <MainContainer>
       <div class="d-flex align-center">
@@ -14,32 +16,57 @@
       </div>
 
       <v-tabs
+        id="appTabs"
         v-model="tab"
         right
+        height="61"
+        color="primary darken-3"
       >
-        <v-tab>Products</v-tab>
-        <v-tab>Discussions</v-tab>
-        <v-tab>Blog</v-tab>
-        <v-tab>Our Story</v-tab>
+        <v-tab
+          :ripple="false"
+          class="text-capitalize"
+        >
+          Products
+        </v-tab>
+        <v-tab
+          :ripple="false"
+          class="text-capitalize"
+        >
+          Discussions
+        </v-tab>
+        <v-tab
+          :ripple="false"
+          class="text-capitalize"
+        >
+          Blog
+        </v-tab>
+        <v-tab
+          :ripple="false"
+          class="text-capitalize"
+        >
+          Our Story
+        </v-tab>
       </v-tabs>
 
       <v-text-field
-        class="search"
+        class="appSearch pt-3"
         placeholder="Products, brands, discussions"
         background-color="#F9FAFB"
         rounded
         filled
         solo
         dense
+        height="30"
         hide-details
+        flat
       >
         <template v-slot:prepend-inner>
-          <v-img
-            alt="Search Icon"
-            class="shrink mr-2"
-            width="20px"
-            src="@/assets/images/search@3x.png"
-          />
+          <v-icon
+            small
+            left
+          >
+            mdi-magnify
+          </v-icon>
         </template>
       </v-text-field>
     </MainContainer>
@@ -62,8 +89,22 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.search {
-  width: 420px;
+<style lang="scss">
+#appTabs {
+  .v-tab:before {
+    background-color: transparent;
+  }
+}
+
+.appSearch {
+  min-width: 270px;
+
+  .v-input__slot {
+    padding-left: 15px !important;
+
+    input {
+    font-size: 11px;
+  }
+  }
 }
 </style>

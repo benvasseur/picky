@@ -4,7 +4,7 @@
 
     <v-main class="main">
       <!-- Provides the application the proper gutter -->
-      <MainContainer class="py-14">
+      <MainContainer class="py-9">
         <Navigation />
 
         <router-view />
