@@ -3,6 +3,7 @@
     width="223"
     height="100%"
     outlined
+    style="position: sticky; top: 90px;"
   >
     <v-list
       dense
@@ -58,7 +59,7 @@ export default {
       {
         label: 'Daily Best',
         bold: true,
-        open: true,
+        open: false,
         icon: 'mdi-seal',
         children: [
           {

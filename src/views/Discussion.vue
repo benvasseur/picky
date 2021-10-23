@@ -31,17 +31,25 @@
 
       <v-row class="mt-3">
         <v-col
-          v-for="n in discussion.image_urls.length"
-          :key="n"
+          v-for="(image, key) in discussion.image_urls"
+          :key="key"
           class="d-flex child-flex"
           cols="4"
         >
           <v-img
-            :src="discussion.image_urls[n-1]"
+            :src="image"
             aspect-ratio="1"
+            @click="openGallery(key)"
           />
         </v-col>
       </v-row>
+
+      <LightBox
+        v-if="formattedImages.length > 0"
+        ref="lightbox"
+        :media="formattedImages"
+        :show-light-box="false"
+      />
 
       <div class="mt-3 d-flex justify-space-between">
         <UpvoteButton :upvote-count="discussion.upvoteCount" />
@@ -95,5 +103,20 @@ export default {
     discussion: discussionData,
     comments: commentsData,
   }),
+
+  computed: {
+    formattedImages() {
+      return this.discussion.image_urls.map((el) => ({
+        thumb: el,
+        src: el,
+      }));
+    },
+  },
+
+  methods: {
+    openGallery(index) {
+      this.$refs.lightbox.showImage(index);
+    },
+  },
 };
 </script>

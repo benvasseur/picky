@@ -12,17 +12,25 @@
 
     <v-row class="mt-3">
       <v-col
-        v-for="n in comment.image_urls.length"
-        :key="n"
+        v-for="(image, key) in comment.image_urls"
+        :key="key"
         class="d-flex child-flex"
         cols="4"
       >
         <v-img
-          :src="comment.image_urls[n-1]"
+          :src="image"
           aspect-ratio="1"
+          @click="openGallery(key)"
         />
       </v-col>
     </v-row>
+
+    <LightBox
+      v-if="formattedImages.length > 0"
+      ref="lightbox"
+      :media="formattedImages"
+      :show-light-box="false"
+    />
 
     <div class="mt-2 d-flex">
       <UpvoteButton :upvote-count="comment.upvoteCount" />
@@ -75,6 +83,21 @@ export default {
     comment: {
       type: Object,
       default: null,
+    },
+  },
+
+  computed: {
+    formattedImages() {
+      return this.comment.image_urls.map((el) => ({
+        thumb: el,
+        src: el,
+      }));
+    },
+  },
+
+  methods: {
+    openGallery(index) {
+      this.$refs.lightbox.showImage(index);
     },
   },
 };
